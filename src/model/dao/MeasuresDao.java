@@ -17,5 +17,5 @@ public interface MeasuresDao {
 	
 	List<Measures> findAll();
 	
-	List<Measures> findByDepartment(User user);
+	List<Measures> findByUser(User user);
 }
