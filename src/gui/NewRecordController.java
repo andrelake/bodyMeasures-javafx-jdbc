@@ -17,7 +17,7 @@ import model.entities.User;
 
 public class NewRecordController implements Initializable{
 
-	ObservableList<String> genderlist = FXCollections.observableArrayList("Male", "Female");
+	ObservableList<String> genderlist = FXCollections.observableArrayList("M", "F");
 	
 	private User entity;
 	
@@ -64,6 +64,9 @@ public class NewRecordController implements Initializable{
 	}
 	
 	public void updateFormData() {
+		if(entity == null) {
+			throw new IllegalStateException("Entity was null");
+		}
 		txtId.setText(String.valueOf(entity.getId())); //converte int do id pra string
 		txtName.setText(entity.getName());
 		txtAge.setText(String.valueOf(entity.getAge()));
