@@ -66,7 +66,7 @@ public class UserDaoJDBC implements UserDao{
 		try {
 			st = conn.prepareStatement(
 					"UPDATE users "
-					+ "SET (Name, Age, Gender) VALUES (?, ?, ?) "
+					+ "SET Name = ?, Age = ?, Gender = ? "
 					+ "WHERE ID = ?");
 			
 			st.setString(1, obj.getName());

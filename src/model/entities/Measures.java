@@ -1,11 +1,9 @@
 package model.entities;
 
-import java.util.Date;
-
 public class Measures {
 
 	private Integer infoId;
-	private Date dateReg;
+	private String dateReg;
 	private Double weight;
 	private Double bodyFat;
 	private Double bicepsRight;
@@ -22,7 +20,7 @@ public class Measures {
 	public Measures() {
 	}
 
-	public Measures(Integer infoId, Date dateReg, Double weight, Double bodyFat, Double bicepsRight, Double bicepsLeft,
+	public Measures(Integer infoId, String dateReg, Double weight, Double bodyFat, Double bicepsRight, Double bicepsLeft,
 			Double shoulders, Double chest, Double waist, Double thighRight, Double thighLeft, Double calfRight,
 			Double calfLeft, User user) {
 		super();
@@ -50,11 +48,11 @@ public class Measures {
 		this.infoId = infoId;
 	}
 
-	public Date getDateReg() {
+	public String getDateReg() {
 		return dateReg;
 	}
 
-	public void setDateReg(Date dateReg) {
+	public void setDateReg(String dateReg) {
 		this.dateReg = dateReg;
 	}
 

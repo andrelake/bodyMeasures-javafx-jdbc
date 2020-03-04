@@ -37,7 +37,7 @@ public class MeasuresDaoJDBC implements MeasuresDao{
 					+ " Thigh_left, Calf_right, Calf_left, UserId) VALUES "
 					+ "(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? ,? ,?)", Statement.RETURN_GENERATED_KEYS);
 			
-			st.setDate(1, (java.sql.Date)obj.getDateReg());
+			st.setString(1, obj.getDateReg());
 			st.setDouble(2, obj.getWeight());
 			st.setDouble(3, obj.getBodyFat());
 			st.setDouble(4, obj.getBicepsRight());
@@ -84,7 +84,7 @@ public class MeasuresDaoJDBC implements MeasuresDao{
 					+ " Chest = ?, Waist = ?, Thigh_right = ?, Thigh_left = ?, Calf_right = ?, Calf_left = ?, UserId = ? "
 					+ "WHERE InfoId = ?");
 			
-			st.setDate(1, (java.sql.Date)obj.getDateReg());
+			st.setString(1, obj.getDateReg());
 			st.setDouble(2, obj.getWeight());
 			st.setDouble(3, obj.getBodyFat());
 			st.setDouble(4, obj.getBicepsRight());
@@ -140,7 +140,7 @@ public class MeasuresDaoJDBC implements MeasuresDao{
 		
 		try {
 			st = conn.prepareStatement(
-					"SELECT bodyinfo.*,user.Name as UserName "
+					"SELECT bodyinfo.*,users.Name as UserName, users.Age as UserAge, users.Gender as UserGender "
 					+ "FROM bodyinfo INNER JOIN users "
 					+ "ON bodyinfo.UserId = users.Id "
 					+ "WHERE bodyinfo.InfoId = ?");
@@ -167,7 +167,7 @@ public class MeasuresDaoJDBC implements MeasuresDao{
 		
 		Measures obj = new Measures();
 		obj.setInfoId(rs.getInt("InfoId"));
-		obj.setDateReg(rs.getDate("DateReg"));
+		obj.setDateReg(rs.getString("DateReg"));
 		obj.setWeight(rs.getDouble("Weight"));
 		obj.setBodyFat(rs.getDouble("BodyFat"));
 		obj.setBicepsRight(rs.getDouble("Biceps_right"));
@@ -188,6 +188,8 @@ public class MeasuresDaoJDBC implements MeasuresDao{
 		User user = new User();
 		user.setId(rs.getInt("UserId"));
 		user.setName(rs.getString("UserName"));
+		user.setAge(rs.getInt("UserAge"));
+		user.setGender(rs.getString("UserGender"));
 		return user;
 	}
 
@@ -199,7 +201,7 @@ public class MeasuresDaoJDBC implements MeasuresDao{
 		
 		try {
 			st = conn.prepareStatement(
-					"SELECT bodyinfo.*,users.Name as UserName "
+					"SELECT bodyinfo.*,users.Name as UserName, users.Age as UserAge, users.Gender as UserGender "
 					+ "FROM bodyinfo INNER JOIN users "
 					+ "ON bodyinfo.UserId = users.Id "
 					+ "ORDER BY InfoId");
@@ -239,7 +241,7 @@ public class MeasuresDaoJDBC implements MeasuresDao{
 		
 		try {
 			st = conn.prepareStatement(
-					"SELECT bodyinfo.*,users.Name as UserName "
+					"SELECT bodyinfo.*,users.Name as UserName, users.Age as UserAge, users.Gender as UserGender "
 					+ "FROM bodyinfo INNER JOIN users "
 					+ "ON bodyinfo.UserId = users.Id "
 					+ "WHERE UserId = ? "
