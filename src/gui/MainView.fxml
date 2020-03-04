@@ -1,14 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ToolBar?>
 <?import javafx.scene.layout.VBox?>
 
-<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.MainViewController">
+<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="609.0" prefWidth="1165.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.MainViewController">
    <content>
-      <VBox prefHeight="305.0" prefWidth="483.0">
+      <VBox prefHeight="596.0" prefWidth="1161.0">
          <children>
             <MenuBar>
               <menus>
@@ -25,6 +29,30 @@
                 </Menu>
               </menus>
             </MenuBar>
+            <ToolBar prefHeight="40.0" prefWidth="200.0">
+              <items>
+                <Button mnemonicParsing="false" text="Button" />
+              </items>
+            </ToolBar>
+            <TableView prefHeight="204.0" prefWidth="1128.0">
+              <columns>
+                <TableColumn prefWidth="75.0" text="Id" />
+                <TableColumn prefWidth="75.0" text="Name" />
+                  <TableColumn prefWidth="75.0" text="Age" />
+                  <TableColumn prefWidth="75.0" text="Date" />
+                  <TableColumn prefWidth="75.0" text="Weight" />
+                  <TableColumn prefWidth="75.0" text="BodyFat" />
+                  <TableColumn prefWidth="75.0" text="Biceps(R)" />
+                  <TableColumn prefWidth="75.0" text="Biceps(L)" />
+                  <TableColumn prefWidth="75.0" text="Shoulders" />
+                  <TableColumn prefWidth="75.0" text="Chest" />
+                  <TableColumn prefWidth="75.0" text="Waist" />
+                  <TableColumn prefWidth="75.0" text="Thigh(R)" />
+                  <TableColumn prefWidth="75.0" text="Thigh(L)" />
+                  <TableColumn prefWidth="75.0" text="Calf(R)" />
+                  <TableColumn prefWidth="75.0" text="Calf(L)" />
+              </columns>
+            </TableView>
          </children>
       </VBox>
    </content>
